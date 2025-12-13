@@ -4,6 +4,10 @@ export interface ApiResponse<T> {
   data: T;
 }
 
+export interface LoginResponse {
+  user: User
+}
+
 export interface User {
     _id: string;
     userName: string;
