@@ -6,6 +6,7 @@ import RegisterPage from "./features/auth/pages/RegisterPage";
 import ProtectedRoute from "./components/Layout/ProtectedRoute";
 import AdminLayout from "./components/Layout/AdminLayout";
 import AdminRoute from "./components/Layout/AdminRoute";
+import OTPPage from "./features/auth/pages/OtpPage";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       {/*  PUBLIC AUTH PAGES  */}
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
+      <Route path="/otp" element={<OTPPage />} />
 
       {/*  PUBLIC + USER ROUTES */}
       <Route element={<MainLayout />}>
