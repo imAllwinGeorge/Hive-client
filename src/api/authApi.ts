@@ -62,6 +62,20 @@ class AuthAPI {
       throw new Error(extractApiError(error));
     }
   }
+
+  async logout(): Promise<ApiResponse<null>> {
+    try {
+      const response: AxiosResponse<ApiResponse<null>> =
+      await axiosInstance.post(API_ROUTES.AUTH.logout);
+
+      if(response.status === HttpStatusCode.OK) {
+        return response.data
+      }
+      throw new Error(errorMessages.unexpectedError);
+    } catch (error) {
+      throw new Error(extractApiError(error));
+    }
+  } 
 }
 
 export const authAPI = new AuthAPI();
