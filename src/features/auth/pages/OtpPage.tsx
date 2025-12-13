@@ -111,7 +111,7 @@ export default function OTPPage() {
     try {
       const user = await authAPI.verifyOtp(otpValue, email);
       dispatch(setCredentials(user));
-      navigate("/home");
+      navigate("/");
     } catch (err) {
       if(err instanceof Error){
         toast.error(err.message || "Failed to verify OTP.");

@@ -37,7 +37,7 @@ const LoginForm = () => {
     try {
       const user = await authAPI.login(loginData);
       dispatch(setCredentials(user));
-      navigate("/home");
+      navigate("/");
     } catch (error) {
       if (error instanceof Error) {
         toast.error(error.message);
