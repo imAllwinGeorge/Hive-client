@@ -1,25 +1,25 @@
-"use client"
+"use client";
 
-import type React from "react"
-import { useRef } from "react"
-import { Upload, Type } from "lucide-react"
-import { SimpleEditor } from "../../../components/tiptap/tiptap-templates/simple/simple-editor"
+import type React from "react";
+import { useRef } from "react";
+import { Upload, Type } from "lucide-react";
+import { SimpleEditor } from "../../../../components/tiptap/tiptap-templates/simple/simple-editor";
 
 interface BlogHeaderFormProps {
-  title: string
-  author: string
-  introduction: string
-  image: File | string
+  title: string;
+  author: string;
+  introduction: string;
+  image: File | string;
   errors: {
-    title?: string
-    author?: string
-    introduction?: string
-    image?: string
-  }
-  onTitleChange: (value: string) => void
-  onAuthorChange: (value: string) => void
-  onIntroductionChange: (value: string) => void
-  onImageChange: (file: File) => void
+    title?: string;
+    author?: string;
+    introduction?: string;
+    image?: string;
+  };
+  onTitleChange: (value: string) => void;
+  onAuthorChange: (value: string) => void;
+  onIntroductionChange: (value: string) => void;
+  onImageChange: (file: File) => void;
 }
 
 export function BlogHeaderForm({
@@ -33,13 +33,13 @@ export function BlogHeaderForm({
   onIntroductionChange,
   onImageChange,
 }: BlogHeaderFormProps) {
-  const coverImageRef = useRef<HTMLInputElement | null>(null)
+  const coverImageRef = useRef<HTMLInputElement | null>(null);
 
   const getImageUrl = (img: File | string) => {
-    if (!img) return "/placeholder.svg"
-    if (typeof img === "string") return img
-    return URL.createObjectURL(img)
-  }
+    if (!img) return "/placeholder.svg";
+    if (typeof img === "string") return img;
+    return URL.createObjectURL(img);
+  };
 
   console.log(title, author, introduction);
   return (
@@ -93,24 +93,21 @@ export function BlogHeaderForm({
 
         {/* Introduction */}
         <div>
-          <label className="block text-sm font-medium mb-2">
-            Introduction
-          </label>
+          <label className="block text-sm font-medium mb-2">Introduction</label>
           <div className="border border-gray-300 rounded-2xl">
-            <SimpleEditor setNewPostRichText={(html) => onIntroductionChange(html)} initialContent="Write introdution...." />
+            <SimpleEditor
+              setNewPostRichText={(html) => onIntroductionChange(html)}
+              initialContent="Write introdution...."
+            />
           </div>
           {errors.introduction && (
-            <p className="text-sm text-red-600 mt-1">
-              {errors.introduction}
-            </p>
+            <p className="text-sm text-red-600 mt-1">{errors.introduction}</p>
           )}
         </div>
 
         {/* Image Upload */}
         <div>
-          <label className="block text-sm font-medium mb-2">
-            Cover Image
-          </label>
+          <label className="block text-sm font-medium mb-2">Cover Image</label>
 
           <input
             type="file"
@@ -118,8 +115,8 @@ export function BlogHeaderForm({
             ref={coverImageRef}
             className="hidden"
             onChange={(e) => {
-              const file = e.target.files?.[0]
-              if (file) onImageChange(file)
+              const file = e.target.files?.[0];
+              if (file) onImageChange(file);
             }}
           />
 
@@ -156,5 +153,5 @@ export function BlogHeaderForm({
         </div>
       </div>
     </section>
-  )
+  );
 }

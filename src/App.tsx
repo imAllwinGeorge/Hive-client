@@ -8,6 +8,7 @@ import AdminLayout from "./components/Layout/AdminLayout";
 import AdminRoute from "./components/Layout/AdminRoute";
 import OTPPage from "./features/auth/pages/OtpPage";
 import BlogWriter from "./features/blog/pages/Blog-Writer";
+import BlogRead from "./features/blog/pages/Read-Blog";
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
       {/*  PUBLIC + USER ROUTES */}
       <Route element={<MainLayout />}>
         <Route path="/" />
-        <Route path="/blog/:id" />
+        <Route path="/blog/:id" element={<BlogRead />} />
 
         {/*  USER PROTECTED ROUTES  */}
         <Route element={<ProtectedRoute />}>

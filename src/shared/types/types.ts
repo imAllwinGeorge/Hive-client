@@ -8,8 +8,9 @@ export interface LoginResponse {
   user: User
 }
 
-export interface CreateBlogResponse {
-  blog: BlogPost;
+export interface BlogReponses {
+  blog?: BlogPost;
+  blogs?: BlogPost[];
 }
 
 export interface User {
