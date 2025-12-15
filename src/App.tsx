@@ -7,6 +7,7 @@ import ProtectedRoute from "./components/Layout/ProtectedRoute";
 import AdminLayout from "./components/Layout/AdminLayout";
 import AdminRoute from "./components/Layout/AdminRoute";
 import OTPPage from "./features/auth/pages/OtpPage";
+import BlogWriter from "./features/blog/pages/Blog-Writer";
 
 function App() {
   return (
@@ -23,7 +24,7 @@ function App() {
 
         {/*  USER PROTECTED ROUTES  */}
         <Route element={<ProtectedRoute />}>
-          <Route path="/create" />
+          <Route path="/create" element={<BlogWriter />} />
           <Route path="/edit/:id" />
           <Route path="/profile" />
         </Route>

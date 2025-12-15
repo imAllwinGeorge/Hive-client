@@ -8,6 +8,10 @@ export interface LoginResponse {
   user: User
 }
 
+export interface CreateBlogResponse {
+  blog: BlogPost;
+}
+
 export interface User {
     _id: string;
     userName: string;
@@ -16,4 +20,24 @@ export interface User {
     isBlocked: boolean;
     createdAt: string;
     updatedAt: string;
+}
+
+export interface BlogPost {
+  _id: string;
+  userId: string;
+  title: string;
+  author: string;
+  introduction: string;
+  sections: BlogSection[];
+  image: string ;
+  views: number;
+  likes: string[];
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+export interface BlogSection {
+  sectionTitle: string;
+  content: string;
+  image?: string ;       
 }
