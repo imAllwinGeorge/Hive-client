@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import { Check } from "lucide-react";
-import { motion } from "framer-motion";
 
 interface RadioOption {
   label: string;
@@ -34,10 +33,10 @@ const RadioGroup: React.FC<RadioGroupProps> = ({
         const isSelected = option.value === value;
 
         return (
-          <motion.label
+          <div
             key={index}
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
+            
+            
             className={`flex items-center justify-center gap-2 py-3 px-4 border rounded-md cursor-pointer select-none transition-all duration-200
               ${
                 isSelected
@@ -63,7 +62,7 @@ const RadioGroup: React.FC<RadioGroupProps> = ({
               {isSelected && <Check size={14} className="text-yellow-500" />}
             </span>
             <span className="font-medium">{option.label}</span>
-          </motion.label>
+          </div>
         );
       })}
     </div>

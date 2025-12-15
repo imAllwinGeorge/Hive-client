@@ -1,10 +1,8 @@
 import * as React from "react"
 
 // --- Lib ---
-import { parseShortcutKeys } from "../../../lib/tiptap-utils"
 
 // --- Hooks ---
-import { useTiptapEditor } from "../../../hooks/use-tiptap-editor"
 
 // --- Tiptap UI ---
 import type { UseImageUploadConfig } from "../../tiptap-ui/image-upload-button"
@@ -17,6 +15,8 @@ import {
 import type { ButtonProps } from "../../tiptap-ui-primitive/button"
 import { Button } from "../../tiptap-ui-primitive/button"
 import { Badge } from "../../tiptap-ui-primitive/badge"
+import { parseShortcutKeys } from "../../../../lib/tiptap-utils"
+import { useTiptapEditor } from "../../../../hooks/use-tiptap-editor"
 
 export interface ImageUploadButtonProps
   extends Omit<ButtonProps, "type">,

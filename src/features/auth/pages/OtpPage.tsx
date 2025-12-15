@@ -1,6 +1,11 @@
 "use client";
 
-import { useState, useEffect, useRef, type ChangeEvent, type KeyboardEvent } from "react";
+import {
+  useState,
+  useEffect,
+  useRef,
+  type KeyboardEvent,
+} from "react";
 import Button from "../../../components/UI/Button";
 import { useLocation, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
@@ -74,8 +79,10 @@ export default function OTPPage() {
   const handleKeyDown = (index: number, e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Backspace") {
       if (!otp[index] && index > 0) inputRefs.current[index - 1]?.focus();
-    } else if (e.key === "ArrowLeft" && index > 0) inputRefs.current[index - 1]?.focus();
-    else if (e.key === "ArrowRight" && index < OTP_LENGTH - 1) inputRefs.current[index + 1]?.focus();
+    } else if (e.key === "ArrowLeft" && index > 0)
+      inputRefs.current[index - 1]?.focus();
+    else if (e.key === "ArrowRight" && index < OTP_LENGTH - 1)
+      inputRefs.current[index + 1]?.focus();
   };
 
   const handlePaste = (e: React.ClipboardEvent) => {
@@ -84,7 +91,8 @@ export default function OTPPage() {
     if (!/^\d+$/.test(pasted)) return;
 
     setOtp(pasted.split("").map((c) => c));
-    const focusIndex = pasted.length >= OTP_LENGTH ? OTP_LENGTH - 1 : pasted.length;
+    const focusIndex =
+      pasted.length >= OTP_LENGTH ? OTP_LENGTH - 1 : pasted.length;
     inputRefs.current[focusIndex]?.focus();
   };
 
@@ -98,8 +106,8 @@ export default function OTPPage() {
       await authAPI.resentOtp(email);
       toast.success("OTP resent successfully!");
     } catch (err) {
-      if(err instanceof Error) {
-        toast.error(err.message || "Failed to send OTP")
+      if (err instanceof Error) {
+        toast.error(err.message || "Failed to send OTP");
       }
     }
 
@@ -113,21 +121,26 @@ export default function OTPPage() {
       dispatch(setCredentials(user));
       navigate("/");
     } catch (err) {
-      if(err instanceof Error){
+      if (err instanceof Error) {
         toast.error(err.message || "Failed to verify OTP.");
       }
     }
   };
 
-  const formatTime = (seconds: number) => `${Math.floor(seconds / 60)}:${(seconds % 60).toString().padStart(2, "0")}`;
+  const formatTime = (seconds: number) =>
+    `${Math.floor(seconds / 60)}:${(seconds % 60).toString().padStart(2, "0")}`;
   const isOtpComplete = otp.every((d) => d !== "");
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-background p-4">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-foreground mb-2">Verify Your Account</h1>
-          <p className="text-muted-foreground">Enter the 6-digit code sent to your email</p>
+          <h1 className="text-3xl font-bold text-foreground mb-2">
+            Verify Your Account
+          </h1>
+          <p className="text-muted-foreground">
+            Enter the 6-digit code sent to your email
+          </p>
         </div>
 
         <div className="bg-card rounded-lg border border-border p-8 shadow-sm">
@@ -135,7 +148,9 @@ export default function OTPPage() {
             {otp.map((digit, index) => (
               <input
                 key={index}
-                ref={(el) => (inputRefs.current[index] = el)}
+                ref={(el: HTMLInputElement | null) => {
+                  inputRefs.current[index] = el;
+                }}
                 type="text"
                 inputMode="numeric"
                 maxLength={1}
@@ -147,7 +162,12 @@ export default function OTPPage() {
             ))}
           </div>
 
-          <Button onClick={handleVerify} disabled={!isOtpComplete} className="w-full mb-4" title="Verify OTP" />
+          <Button
+            onClick={handleVerify}
+            disabled={!isOtpComplete}
+            className="w-full mb-4"
+            title="Verify OTP"
+          />
 
           <div className="text-center">
             {!canResend ? (
@@ -155,7 +175,11 @@ export default function OTPPage() {
                 Resend available in {formatTime(timeRemaining)}
               </p>
             ) : (
-              <Button onClick={handleResend} className="w-full bg-green-600 hover:bg-green-700 text-white" title="Resend OTP" />
+              <Button
+                onClick={handleResend}
+                className="w-full bg-green-600 hover:bg-green-700 text-white"
+                title="Resend OTP"
+              />
             )}
           </div>
         </div>

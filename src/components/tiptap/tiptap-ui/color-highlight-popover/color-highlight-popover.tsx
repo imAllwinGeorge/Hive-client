@@ -32,9 +32,9 @@ import {
   pickHighlightColorsByValue,
   useColorHighlight,
 } from "../../tiptap-ui/color-highlight-button"
-import { useIsMobile } from "../../../../hooks/use-mobile"
 import { useMenuNavigation } from "../../../../hooks/use-menu-navigation"
 import { useTiptapEditor } from "../../../../hooks/use-tiptap-editor"
+import { useIsMobile } from "../../../../hooks/use-mobile"
 
 export interface ColorHighlightPopoverContentProps {
   /**

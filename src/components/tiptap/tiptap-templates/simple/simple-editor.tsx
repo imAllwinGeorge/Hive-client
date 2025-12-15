@@ -57,16 +57,13 @@ import { HighlighterIcon } from "../../tiptap-icons/highlighter-icon"
 import { LinkIcon } from "../../tiptap-icons/link-icon"
 
 // --- Hooks ---
-import { useIsMobile } from "../../../../hooks/use-mobile"
 import { useWindowSize } from "../../../../hooks/use-window-size"
 import { useCursorVisibility } from "../../../../hooks/use-cursor-visibility"
-
-// --- Lib ---
-// import { handleImageUpload, MAX_FILE_SIZE } from "../../../lib/tiptap-utils"
 
 // --- Styles ---
 import "../../tiptap-templates/simple/simple-editor.scss"
 import { handleImageUpload, MAX_FILE_SIZE } from "../../../../lib/tiptap-utils"
+import { useIsMobile } from "../../../../hooks/use-mobile"
 
 // import content from "@/components/tiptap-templates/simple/data/content.json"
 

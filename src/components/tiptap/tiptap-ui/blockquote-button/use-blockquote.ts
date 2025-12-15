@@ -9,8 +9,8 @@ import { useHotkeys } from "react-hotkeys-hook"
 
 // --- Icons ---
 import { BlockquoteIcon } from "../../tiptap-icons/blockquote-icon"
-import { findNodePosition, isNodeInSchema, isNodeTypeSelected, isValidPosition } from "../../../../lib/tiptap-utils"
 import { useTiptapEditor } from "../../../../hooks/use-tiptap-editor"
+import { findNodePosition, isNodeInSchema, isNodeTypeSelected, isValidPosition } from "../../../../lib/tiptap-utils"
 import { useIsMobile } from "../../../../hooks/use-mobile"
 
 

@@ -10,8 +10,8 @@ import { Badge } from "../../tiptap-ui-primitive/badge"
 // --- Tiptap UI ---
 import type { ListType, UseListConfig } from "../../tiptap-ui/list-button"
 import { LIST_SHORTCUT_KEYS, useList } from "../../tiptap-ui/list-button"
-import { parseShortcutKeys } from "../../../../lib/tiptap-utils"
 import { useTiptapEditor } from "../../../../hooks/use-tiptap-editor"
+import { parseShortcutKeys } from "../../../../lib/tiptap-utils"
 
 export interface ListButtonProps
   extends Omit<ButtonProps, "type">,

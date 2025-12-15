@@ -11,8 +11,8 @@ import { NodeSelection, TextSelection } from "@tiptap/pm/state"
 import { ListIcon } from "../../tiptap-icons/list-icon"
 import { ListOrderedIcon } from "../../tiptap-icons/list-ordered-icon"
 import { ListTodoIcon } from "../../tiptap-icons/list-todo-icon"
-import { findNodePosition, isNodeInSchema, isNodeTypeSelected, isValidPosition } from "../../../../lib/tiptap-utils"
 import { useTiptapEditor } from "../../../../hooks/use-tiptap-editor"
+import { findNodePosition, isNodeInSchema, isNodeTypeSelected, isValidPosition } from "../../../../lib/tiptap-utils"
 import { useIsMobile } from "../../../../hooks/use-mobile"
 
 

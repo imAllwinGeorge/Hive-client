@@ -9,8 +9,8 @@ import { NodeSelection, TextSelection } from "@tiptap/pm/state"
 
 // --- Icons ---
 import { CodeBlockIcon } from "../../tiptap-icons/code-block-icon"
-import { findNodePosition, isNodeInSchema, isNodeTypeSelected, isValidPosition } from "../../../../lib/tiptap-utils"
 import { useTiptapEditor } from "../../../../hooks/use-tiptap-editor"
+import { findNodePosition, isNodeInSchema, isNodeTypeSelected, isValidPosition } from "../../../../lib/tiptap-utils"
 import { useIsMobile } from "../../../../hooks/use-mobile"
 
 export const CODE_BLOCK_SHORTCUT_KEY = "mod+alt+c"

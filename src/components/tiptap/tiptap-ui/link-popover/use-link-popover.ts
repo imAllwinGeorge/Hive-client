@@ -7,8 +7,8 @@ import type { Editor } from "@tiptap/react"
 
 // --- Icons ---
 import { LinkIcon } from "../../tiptap-icons/link-icon"
-import { isMarkInSchema, sanitizeUrl } from "../../../../lib/tiptap-utils"
 import { useTiptapEditor } from "../../../../hooks/use-tiptap-editor"
+import { isMarkInSchema, sanitizeUrl } from "../../../../lib/tiptap-utils"
 
 
 
