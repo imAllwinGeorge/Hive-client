@@ -34,6 +34,20 @@ class BlogApi {
             throw new Error(extractApiError(error));
         }
     }
+
+    async editBlog(blogId: string, blog: FormData): Promise<BlogPost> {
+        try {
+            const response: AxiosResponse<BlogReponses> = 
+            await axiosInstance.put(API_ROUTES.BLOG.editBlog(blogId), blog);
+
+            if(response.status === HttpStatusCode.OK) {
+                return response.data.blog as BlogPost
+            }
+            throw new Error(errorMessages.unexpectedError);
+        } catch (error) {
+            throw new Error(extractApiError(error));
+        }
+    }
 }
 
 export const blogApi = new BlogApi();

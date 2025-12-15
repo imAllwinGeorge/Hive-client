@@ -4,6 +4,7 @@ import type React from "react";
 import { useRef } from "react";
 import { Upload, Type } from "lucide-react";
 import { SimpleEditor } from "../../../../components/tiptap/tiptap-templates/simple/simple-editor";
+import { config } from "../../../../shared/constants/config";
 
 interface BlogHeaderFormProps {
   title: string;
@@ -37,7 +38,7 @@ export function BlogHeaderForm({
 
   const getImageUrl = (img: File | string) => {
     if (!img) return "/placeholder.svg";
-    if (typeof img === "string") return img;
+    if (typeof img === "string") return `${config.VITE_BASE_IMG_URL}${img}`;
     return URL.createObjectURL(img);
   };
 

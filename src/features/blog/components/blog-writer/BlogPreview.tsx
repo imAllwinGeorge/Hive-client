@@ -1,7 +1,8 @@
 "use client";
 
 import { Save, Type } from "lucide-react";
-import type { BlogSection } from "./BlogSectionCard";
+import { config } from "../../../../shared/constants/config";
+import type { BlogSection } from "../../../../shared/types/types";
 
 interface BlogPreviewProps {
   title: string;
@@ -24,7 +25,7 @@ export function BlogPreview({
 }: BlogPreviewProps) {
   const getImageUrl = (img: File | string | undefined) => {
     if (!img) return "/placeholder.svg";
-    if (typeof img === "string") return img;
+    if (typeof img === "string") return `${config.VITE_BASE_IMG_URL}${img}`;
     return URL.createObjectURL(img);
   };
 

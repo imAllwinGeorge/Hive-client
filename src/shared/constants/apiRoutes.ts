@@ -8,6 +8,7 @@ export const API_ROUTES = {
     },
     BLOG: {
         createBlog: "/api/blog/create",
-        getBlog: (blogId: string) => `/api/blog/get-blog/${blogId}`
+        getBlog: (blogId: string) => `/api/blog/get-blog/${blogId}`,
+        editBlog: (blogId: string) => `/api/blog/edit-blog/${blogId}`,
     }
 }

@@ -32,7 +32,7 @@ export default function BlogContent({ blogPost }: BlogContentProps) {
             key={index}
             sectionTitle={section.sectionTitle}
             content={section.content}
-            image={section.image}
+            image={section.image as string}
             index={index}
           />
         ))}
