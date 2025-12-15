@@ -30,7 +30,7 @@ export interface BlogPost {
   author: string;
   introduction: string;
   sections: BlogSection[];
-  image: string ;
+  image: string | File ;
   views: number;
   likes: string[];
   createdAt: Date;
@@ -40,5 +40,5 @@ export interface BlogPost {
 export interface BlogSection {
   sectionTitle: string;
   content: string;
-  image?: string ;       
+  image?: string | File ;       
 }

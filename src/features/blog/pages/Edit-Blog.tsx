@@ -1,40 +1,43 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BlogHeaderForm } from "../components/blog-writer/BlogHeaderForm";
 import Button from "../../../components/UI/Button";
 import {
   BlogSectionCard,
 } from "../components/blog-writer/BlogSectionCard";
 import { TableOfContentsPreview } from "../components/blog-writer/TableOfContentsPreview";
-import { BlogPreview } from "../components/blog-writer/BlogPreview";
 import { blogApi } from "../../../api/blogApi";
 import toast from "react-hot-toast";
 import { useSelector } from "react-redux";
 import type { RootState } from "../../../store";
-import type { BlogSection } from "../../../shared/types/types";
+import { useNavigate, useParams } from "react-router-dom";
+import type { BlogPost, BlogSection } from "../../../shared/types/types";
 
-interface BlogDTO {
-  userId: string;
-  title: string;
-  author: string;
-  introduction: string;
-  sections: BlogSection[];
-  image: File | string;
-}
-
-export default function BlogWriter() {
+export default function EditBlog() {
+    const navigate = useNavigate();
+  const params = useParams();
+  const id = params.id;
   const user = useSelector((state: RootState) => state.auth.user);
-  const [blogPost, setBlogPost] = useState<BlogDTO>({
-    userId: user?._id as string,
-    title: "",
-    author: "",
-    introduction: "",
-    sections: [],
-    image: "",
-  });
+  const [blogPost, setBlogPost] = useState<BlogPost>({
+      _id: "",
+      userId: user?._id as string,
+      title: "",
+      author: "",
+      introduction: "",
+      sections: [{
+        sectionTitle: "",
+  content: "",
+  image: "",  
+      }],
+      image: "",
+      views: 0,
+      likes: [],
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    }
+  );
 
-  const [isPreview, setIsPreview] = useState(false);
   const [errors, setErrors] = useState<{
     title?: string;
     author?: string;
@@ -138,8 +141,9 @@ export default function BlogWriter() {
   const submitData = async (formData: FormData) => {
     console.log(formData);
     try {
-      const blog = await blogApi.crateBlog(formData);
+      const blog = await blogApi.editBlog(blogPost._id, formData);
       console.log("create blog: ", blog);
+      navigate(`/blog/${blog._id}`)
     } catch (error) {
       console.log(error);
       if (error instanceof Error) {
@@ -148,7 +152,7 @@ export default function BlogWriter() {
     }
   };
 
-  const saveBlog = () => {
+  const editBlog = () => {
     console.log("Saving blog post:", blogPost);
 
     const newErrors = validate();
@@ -194,19 +198,19 @@ export default function BlogWriter() {
     submitData(formData);
   };
 
-  if (isPreview) {
-    return (
-      <BlogPreview
-        title={blogPost.title}
-        author={blogPost.author}
-        introduction={blogPost.introduction}
-        sections={blogPost.sections}
-        image={blogPost.image}
-        onEdit={() => setIsPreview(false)}
-        onSave={saveBlog}
-      />
-    );
-  }
+  useEffect(() => {
+    const fetchBlog = async () => {
+      try {
+        const blog = await blogApi.getBlog(id as string);
+        setBlogPost(blog);
+      } catch (error) {
+        if (error instanceof Error) {
+          toast.error(error.message);
+        }
+      }
+    };
+    fetchBlog();
+  }, [id]);
 
   return (
     <div className="min-h-screen bg-muted">
@@ -216,7 +220,7 @@ export default function BlogWriter() {
           <h1 className="text-2xl font-bold">Create New Blog Post</h1>
           <div className="flex gap-2">
             <Button
-              onClick={saveBlog}
+              onClick={editBlog}
               className="px-4 text-white bg-green-400 hover:bg-green-600 "
             >
               Save Draft

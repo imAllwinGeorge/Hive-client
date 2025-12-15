@@ -9,6 +9,7 @@ import AdminRoute from "./components/Layout/AdminRoute";
 import OTPPage from "./features/auth/pages/OtpPage";
 import BlogWriter from "./features/blog/pages/Blog-Writer";
 import BlogRead from "./features/blog/pages/Read-Blog";
+import EditBlog from "./features/blog/pages/Edit-Blog";
 
 function App() {
   return (
@@ -26,7 +27,7 @@ function App() {
         {/*  USER PROTECTED ROUTES  */}
         <Route element={<ProtectedRoute />}>
           <Route path="/create" element={<BlogWriter />} />
-          <Route path="/edit/:id" />
+          <Route path="/edit/:id" element={<EditBlog />} />
           <Route path="/profile" />
         </Route>
       </Route>

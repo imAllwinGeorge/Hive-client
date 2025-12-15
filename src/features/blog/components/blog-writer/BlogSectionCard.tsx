@@ -3,12 +3,10 @@
 import { useRef } from "react";
 import { X, Upload } from "lucide-react";
 import { SimpleEditor } from "../../../../components/tiptap/tiptap-templates/simple/simple-editor";
+import { config } from "../../../../shared/constants/config";
+import type { BlogSection } from "../../../../shared/types/types";
 
-export interface BlogSection {
-  sectionTitle: string;
-  content: string;
-  image?: File | string;
-}
+
 
 interface BlogSectionCardProps {
   section: BlogSection;
@@ -33,7 +31,7 @@ export function BlogSectionCard({
 
   const getImageUrl = (img?: File | string) => {
     if (!img) return "/placeholder.svg";
-    if (typeof img === "string") return img;
+    if (typeof img === "string") return `${config.VITE_BASE_IMG_URL}${img}`;
     return URL.createObjectURL(img);
   };
 
