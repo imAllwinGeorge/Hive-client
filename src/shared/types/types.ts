@@ -13,6 +13,11 @@ export interface BlogReponses {
   blogs?: BlogPost[];
 }
 
+export interface HomeDataResponse {
+  featuredPosts: BlogPost[];
+  sidebarPosts: BlogPost[];
+  total: number
+}
 export interface User {
     _id: string;
     userName: string;

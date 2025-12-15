@@ -10,6 +10,7 @@ import OTPPage from "./features/auth/pages/OtpPage";
 import BlogWriter from "./features/blog/pages/Blog-Writer";
 import BlogRead from "./features/blog/pages/Read-Blog";
 import EditBlog from "./features/blog/pages/Edit-Blog";
+import BlogHomepage from "./features/blog/pages/blog-home";
 
 function App() {
   return (
@@ -21,13 +22,14 @@ function App() {
 
       {/*  PUBLIC + USER ROUTES */}
       <Route element={<MainLayout />}>
-        <Route path="/" />
-        <Route path="/blog/:id" element={<BlogRead />} />
+        <Route path="/" element={<BlogHomepage />} />
+        
 
         {/*  USER PROTECTED ROUTES  */}
         <Route element={<ProtectedRoute />}>
           <Route path="/create" element={<BlogWriter />} />
           <Route path="/edit/:id" element={<EditBlog />} />
+          <Route path="/blog/:id" element={<BlogRead />} />
           <Route path="/profile" />
         </Route>
       </Route>

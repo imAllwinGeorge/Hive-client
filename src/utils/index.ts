@@ -14,3 +14,13 @@ export function extractApiError(error: unknown): string {
     "Something went wrong. Please try again"
   );
 }
+
+export function formatDate(dateString: Date): string {
+  const date = new Date(dateString)
+
+  return date.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  })
+}

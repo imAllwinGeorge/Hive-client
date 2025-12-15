@@ -1,5 +1,5 @@
 import type { AxiosResponse } from "axios";
-import type { BlogPost, BlogReponses } from "../shared/types/types";
+import type { BlogPost, BlogReponses, HomeDataResponse } from "../shared/types/types";
 import { extractApiError } from "../utils";
 import { axiosInstance } from "./axiosInstance";
 import { API_ROUTES } from "../shared/constants/apiRoutes";
@@ -42,6 +42,20 @@ class BlogApi {
 
             if(response.status === HttpStatusCode.OK) {
                 return response.data.blog as BlogPost
+            }
+            throw new Error(errorMessages.unexpectedError);
+        } catch (error) {
+            throw new Error(extractApiError(error));
+        }
+    }
+
+    async getHomeData(searchQuery: string, page: number, skip: number= 6):Promise<HomeDataResponse> {
+        try {
+            const response: AxiosResponse<HomeDataResponse> = 
+            await axiosInstance.get(API_ROUTES.BLOG.getHomeData(searchQuery, page, skip));
+
+            if(response.status === HttpStatusCode.OK) {
+                return response.data
             }
             throw new Error(errorMessages.unexpectedError);
         } catch (error) {
