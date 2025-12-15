@@ -28,8 +28,8 @@ import {
   CardItemGroup,
 } from "../../tiptap-ui-primitive/card"
 import { Input, InputGroup } from "../../tiptap-ui-primitive/input"
-import { useIsMobile } from "../../../../hooks/use-mobile"
 import { useTiptapEditor } from "../../../../hooks/use-tiptap-editor"
+import { useIsMobile } from "../../../../hooks/use-mobile"
 
 export interface LinkMainProps {
   /**

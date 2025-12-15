@@ -14,8 +14,8 @@ import { StrikeIcon } from "../../tiptap-icons/strike-icon"
 import { SubscriptIcon } from "../../tiptap-icons/subscript-icon"
 import { SuperscriptIcon } from "../../tiptap-icons/superscript-icon"
 import { UnderlineIcon } from "../../tiptap-icons/underline-icon"
-import { isMarkInSchema, isNodeTypeSelected } from "../../../../lib/tiptap-utils"
 import { useTiptapEditor } from "../../../../hooks/use-tiptap-editor"
+import { isMarkInSchema, isNodeTypeSelected } from "../../../../lib/tiptap-utils"
 import { useIsMobile } from "../../../../hooks/use-mobile"
 
 export type Mark =

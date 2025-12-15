@@ -14,8 +14,8 @@ import { HeadingThreeIcon } from "../../tiptap-icons/heading-three-icon"
 import { HeadingFourIcon } from "../../tiptap-icons/heading-four-icon"
 import { HeadingFiveIcon } from "../../tiptap-icons/heading-five-icon"
 import { HeadingSixIcon } from "../../tiptap-icons/heading-six-icon"
-import { findNodePosition, isNodeInSchema, isNodeTypeSelected, isValidPosition } from "../../../../lib/tiptap-utils"
 import { useTiptapEditor } from "../../../../hooks/use-tiptap-editor"
+import { findNodePosition, isNodeInSchema, isNodeTypeSelected, isValidPosition } from "../../../../lib/tiptap-utils"
 import { useIsMobile } from "../../../../hooks/use-mobile"
 
 export type Level = 1 | 2 | 3 | 4 | 5 | 6

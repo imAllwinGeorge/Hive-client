@@ -1,5 +1,5 @@
 import * as React from "react"
-import { cn } from "../../lib/tiptap-utils"
+import { cn } from "../../../lib/tiptap-utils"
 
 
 function Textarea({ className, ...props }: React.ComponentProps<"textarea">) {

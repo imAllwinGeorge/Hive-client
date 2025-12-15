@@ -10,8 +10,8 @@ import { MARK_SHORTCUT_KEYS, useMark } from "../../tiptap-ui/mark-button"
 import type { ButtonProps } from "../../tiptap-ui-primitive/button"
 import { Button } from "../../tiptap-ui-primitive/button"
 import { Badge } from "../../tiptap-ui-primitive/badge"
-import { parseShortcutKeys } from "../../../../lib/tiptap-utils"
 import { useTiptapEditor } from "../../../../hooks/use-tiptap-editor"
+import { parseShortcutKeys } from "../../../../lib/tiptap-utils"
 
 export interface MarkButtonProps
   extends Omit<ButtonProps, "type">,

@@ -9,8 +9,8 @@ import { type Editor } from "@tiptap/react"
 // --- Icons ---
 import { Redo2Icon } from "../../tiptap-icons/redo2-icon"
 import { Undo2Icon } from "../../tiptap-icons/undo2-icon"
-import { isNodeTypeSelected } from "../../../../lib/tiptap-utils"
 import { useTiptapEditor } from "../../../../hooks/use-tiptap-editor"
+import { isNodeTypeSelected } from "../../../../lib/tiptap-utils"
 import { useIsMobile } from "../../../../hooks/use-mobile"
 
 export type UndoRedoAction = "undo" | "redo"

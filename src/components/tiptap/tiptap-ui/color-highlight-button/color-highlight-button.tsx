@@ -18,8 +18,8 @@ import { Badge } from "../../tiptap-ui-primitive/badge"
 
 // --- Styles ---
 import "./color-highlight-button.scss"
-import { parseShortcutKeys } from "../../../../lib/tiptap-utils"
 import { useTiptapEditor } from "../../../../hooks/use-tiptap-editor"
+import { parseShortcutKeys } from "../../../../lib/tiptap-utils"
 
 export interface ColorHighlightButtonProps
   extends Omit<ButtonProps, "type">,

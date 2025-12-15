@@ -1,7 +1,7 @@
 "use client";
 
 import { List } from "lucide-react";
-import type { BlogSection } from "./BlogSectionCard";
+import type { BlogSection } from "../../../../shared/types/types";
 
 interface TableOfContentsPreviewProps {
   sections: BlogSection[];

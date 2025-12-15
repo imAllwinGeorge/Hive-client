@@ -6,8 +6,8 @@ import { useHotkeys } from "react-hotkeys-hook"
 
 // --- Icons ---
 import { HighlighterIcon } from "../../tiptap-icons/highlighter-icon"
-import { isMarkInSchema, isNodeTypeSelected } from "../../../../lib/tiptap-utils"
 import { useTiptapEditor } from "../../../../hooks/use-tiptap-editor"
+import { isMarkInSchema, isNodeTypeSelected } from "../../../../lib/tiptap-utils"
 import { useIsMobile } from "../../../../hooks/use-mobile"
 
 export const COLOR_HIGHLIGHT_SHORTCUT_KEY = "mod+shift+h"
