@@ -1,25 +1,25 @@
-"use client"
+"use client";
 
-import { useRef } from "react"
-import { X, Upload } from "lucide-react"
-import { SimpleEditor } from "../../../components/tiptap/tiptap-templates/simple/simple-editor"
+import { useRef } from "react";
+import { X, Upload } from "lucide-react";
+import { SimpleEditor } from "../../../../components/tiptap/tiptap-templates/simple/simple-editor";
 
 export interface BlogSection {
-  sectionTitle: string
-  content: string
-  image?: File | string
+  sectionTitle: string;
+  content: string;
+  image?: File | string;
 }
 
 interface BlogSectionCardProps {
-  section: BlogSection
-  index: number
+  section: BlogSection;
+  index: number;
   errors?: {
-    sectionTitle?: string
-    content?: string
-    image?: string
-  }
-  onUpdate: (field: keyof BlogSection, value: string | File) => void
-  onRemove: () => void
+    sectionTitle?: string;
+    content?: string;
+    image?: string;
+  };
+  onUpdate: (field: keyof BlogSection, value: string | File) => void;
+  onRemove: () => void;
 }
 
 export function BlogSectionCard({
@@ -29,21 +29,19 @@ export function BlogSectionCard({
   onUpdate,
   onRemove,
 }: BlogSectionCardProps) {
-  const fileInputRef = useRef<HTMLInputElement | null>(null)
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
 
   const getImageUrl = (img?: File | string) => {
-    if (!img) return "/placeholder.svg"
-    if (typeof img === "string") return img
-    return URL.createObjectURL(img)
-  }
+    if (!img) return "/placeholder.svg";
+    if (typeof img === "string") return img;
+    return URL.createObjectURL(img);
+  };
 
   return (
     <section className="rounded-xl border border-gray-200 bg-white p-6 space-y-5">
       {/* Header */}
       <div className="flex justify-between items-center">
-        <h3 className="text-lg font-semibold">
-          Section {index + 1}
-        </h3>
+        <h3 className="text-lg font-semibold">Section {index + 1}</h3>
 
         <button
           type="button"
@@ -56,9 +54,7 @@ export function BlogSectionCard({
 
       {/* Section Title */}
       <div>
-        <label className="block text-sm font-medium mb-2">
-          Section Title
-        </label>
+        <label className="block text-sm font-medium mb-2">Section Title</label>
 
         <input
           type="text"
@@ -69,42 +65,37 @@ export function BlogSectionCard({
         />
 
         {errors?.sectionTitle && (
-          <p className="mt-1 text-sm text-red-600">
-            {errors.sectionTitle}
-          </p>
+          <p className="mt-1 text-sm text-red-600">{errors.sectionTitle}</p>
         )}
       </div>
 
       {/* Content */}
-      <div >
-        <label className="block text-sm font-medium mb-2">
-          Content
-        </label>
+      <div>
+        <label className="block text-sm font-medium mb-2">Content</label>
 
         <div className="border border-gray-300 rounded-2xl">
-          <SimpleEditor setNewPostRichText={(html) => onUpdate("content", html)} initialContent="Write your section content..." />
+          <SimpleEditor
+            setNewPostRichText={(html) => onUpdate("content", html)}
+            initialContent="Write your section content..."
+          />
         </div>
 
         {errors?.content && (
-          <p className="mt-1 text-sm text-red-600">
-            {errors.content}
-          </p>
+          <p className="mt-1 text-sm text-red-600">{errors.content}</p>
         )}
       </div>
 
       {/* Image Upload */}
       <div>
-        <label className="block text-sm font-medium mb-2">
-          Section Image
-        </label>
+        <label className="block text-sm font-medium mb-2">Section Image</label>
 
         <input
           type="file"
           accept="image/*"
           ref={fileInputRef}
           onChange={(e) => {
-            const file = e.target.files?.[0]
-            if (file) onUpdate("image", file)
+            const file = e.target.files?.[0];
+            if (file) onUpdate("image", file);
           }}
           className="hidden"
         />
@@ -127,9 +118,7 @@ export function BlogSectionCard({
         </div>
 
         {errors?.image && (
-          <p className="mt-1 text-sm text-red-600">
-            {errors.image}
-          </p>
+          <p className="mt-1 text-sm text-red-600">{errors.image}</p>
         )}
 
         {section.image && (
@@ -143,5 +132,5 @@ export function BlogSectionCard({
         )}
       </div>
     </section>
-  )
+  );
 }

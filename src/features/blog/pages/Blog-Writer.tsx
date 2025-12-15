@@ -1,14 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { BlogHeaderForm } from "../components/BlogHeaderForm";
+import { BlogHeaderForm } from "../components/blog-writer/BlogHeaderForm";
 import Button from "../../../components/UI/Button";
 import {
   BlogSectionCard,
   type BlogSection,
-} from "../components/BlogSectionCard";
-import { TableOfContentsPreview } from "../components/TableOfContentsPreview";
-import { BlogPreview } from "../components/BlogPreview";
+} from "../components/blog-writer/BlogSectionCard";
+import { TableOfContentsPreview } from "../components/blog-writer/TableOfContentsPreview";
+import { BlogPreview } from "../components/blog-writer/BlogPreview";
 import { blogApi } from "../../../api/blogApi";
 import toast from "react-hot-toast";
 import { useSelector } from "react-redux";
@@ -24,7 +24,7 @@ interface BlogDTO {
 }
 
 export default function BlogWriter() {
-  const user = useSelector((state:RootState) => state.auth.user)
+  const user = useSelector((state: RootState) => state.auth.user);
   const [blogPost, setBlogPost] = useState<BlogDTO>({
     userId: user?._id as string,
     title: "",
@@ -138,10 +138,10 @@ export default function BlogWriter() {
   const submitData = async (formData: FormData) => {
     console.log(formData);
     try {
-      const blog = await blogApi.crateBlog(formData)
+      const blog = await blogApi.crateBlog(formData);
       console.log("create blog: ", blog);
     } catch (error) {
-      console.log(error)
+      console.log(error);
       if (error instanceof Error) {
         toast.error(error.message);
       }
@@ -215,7 +215,10 @@ export default function BlogWriter() {
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-2xl font-bold">Create New Blog Post</h1>
           <div className="flex gap-2">
-            <Button onClick={saveBlog} className="px-4 text-white bg-green-400 hover:bg-green-600 ">
+            <Button
+              onClick={saveBlog}
+              className="px-4 text-white bg-green-400 hover:bg-green-600 "
+            >
               Save Draft
             </Button>
           </div>
