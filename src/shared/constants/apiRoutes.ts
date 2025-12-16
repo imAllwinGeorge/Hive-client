@@ -5,6 +5,7 @@ export const API_ROUTES = {
         resendOtp: (email: string) => `/api/resend-otp/${email}`,
         login: "/api/login",
         logout: "/api/logout",
+        refreshToken: "/api/refresh-token"
     },
     BLOG: {
         createBlog: "/api/blog/create",

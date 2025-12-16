@@ -45,10 +45,10 @@ const Navbar = () => {
               Home
             </Link>
             <Link
-              to="/blogs"
+              to="/create"
               className="text-gray-700 hover:text-gray-900 transition-colors"
             >
-              Blogs
+              create
             </Link>
             <Link
               to="/about"
@@ -74,13 +74,13 @@ const Navbar = () => {
             ) : (
               <div className="flex items-center gap-3">
                 <Link
-                  to="/signin"
+                  to="/login"
                   className="text-gray-700 hover:text-gray-900 transition-colors"
                 >
                   Sign In
                 </Link>
                 <Link
-                  to="/signup"
+                  to="/register"
                   className="bg-gray-900 text-white px-5 py-2 rounded-lg hover:bg-gray-800 transition-colors"
                 >
                   Sign Up
