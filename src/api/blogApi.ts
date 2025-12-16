@@ -25,7 +25,7 @@ class BlogApi {
         try {
             const response: AxiosResponse<BlogReponses> = 
             await axiosInstance.get(API_ROUTES.BLOG.getBlog(blogId));
-
+            console.log(response)
             if(response.status === HttpStatusCode.OK) {
                 return response.data.blog as BlogPost
             }
