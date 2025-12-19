@@ -32,6 +32,7 @@ export default function BlogRead() {
         const blog = await blogApi.getBlog(id)
         console.log(blog, id);
         setBlogPost(blog);
+        navigate("/")
       } catch (error) {
         if (error instanceof Error) {
           toast.error(error.message)
@@ -39,7 +40,7 @@ export default function BlogRead() {
       }
     }
     fetchBlog()
-  }, [id])
+  }, [id, navigate])
 
   const deleteBlog = async () => {
     if (!blogPost) return
