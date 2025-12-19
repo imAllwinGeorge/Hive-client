@@ -11,6 +11,7 @@ export const API_ROUTES = {
         createBlog: "/api/blog/create",
         getBlog: (blogId: string) => `/api/blog/get-blog/${blogId}`,
         editBlog: (blogId: string) => `/api/blog/edit-blog/${blogId}`,
-        getHomeData: (searchQuery: string, page: number, skip: number) => `/api/blog/home?search=${searchQuery}&page=${page}&skip=${skip}`
+        getHomeData: (searchQuery: string, page: number, skip: number) => `/api/blog/home?search=${searchQuery}&page=${page}&skip=${skip}`,
+        deleteBlog: (blogId: string) => `/api/blog/delete-blog/${blogId}`
     }
 }
