@@ -30,9 +30,9 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div className="shrink-0">
+          <div className="shrink-0 w-25 h-15 bg-black rounded">
             <Link to="/" className="text-xl font-bold text-gray-900">
-              BlogSite
+             <img src="/Hive-logo.png" alt="Hive" />
             </Link>
           </div>
 
@@ -113,11 +113,11 @@ const Navbar = () => {
               Home
             </Link>
             <Link
-              to="/blogs"
+              to="/create"
               className="block py-2 text-gray-700 hover:text-gray-900"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Blogs
+              create
             </Link>
             <Link
               to="/about"
@@ -140,14 +140,14 @@ const Navbar = () => {
               ) : (
                 <div className="space-y-2">
                   <Link
-                    to="/signin"
+                    to="/login"
                     className="block w-full text-center py-2 text-gray-700 hover:text-gray-900"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     Sign In
                   </Link>
                   <Link
-                    to="/signup"
+                    to="/register"
                     className="block w-full text-center bg-gray-900 text-white px-5 py-2 rounded-lg hover:bg-gray-800"
                     onClick={() => setMobileMenuOpen(false)}
                   >

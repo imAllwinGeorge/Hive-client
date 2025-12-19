@@ -98,7 +98,7 @@ export function BlogHeaderForm({
           <div className="border border-gray-300 rounded-2xl">
             <SimpleEditor
               setNewPostRichText={(html) => onIntroductionChange(html)}
-              initialContent="Write introdution...."
+              initialContent={introduction}
             />
           </div>
           {errors.introduction && (

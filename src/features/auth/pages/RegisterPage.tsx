@@ -1,17 +1,6 @@
-import { axiosInstance } from "../../../api/axiosInstance"
 import RegisterForm from "../components/RegisterForm"
 
 const RegisterPage = () => {
-
-  const handleClick = async () => {
-    try {
-      const response = await axiosInstance.get("/test");
-
-      console.log(response)
-    } catch (error) {
-      console.log(error)
-    }
-  }
   return (
     <div className="min-h-screen flex items-center justify-center p-4  from-blue-200 via-blue-100 to-blue-50">
       <div className="w-full max-w-md bg-white rounded-3xl shadow-2xl p-8 md:p-10">
@@ -35,7 +24,7 @@ const RegisterPage = () => {
         </div>
 
         {/* Social Signup */}
-        <div className="grid grid-cols-3 gap-3">
+        {/* <div className="grid grid-cols-3 gap-3">
           <button
             type="button"
             className="flex items-center justify-center p-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
@@ -78,7 +67,7 @@ const RegisterPage = () => {
               <path d="M17.05 13.5c-.91 0-1.82.45-2.33 1.36.51.91 1.42 1.36 2.33 1.36 1.91 0 3.46-1.55 3.46-3.46S19.05 8.3 17.14 8.3c-1.42 0-2.64.91-3.09 2.18-.23-.05-.45-.09-.68-.09-2.05 0-3.73 1.68-3.73 3.73S10.33 17.8 12.37 17.8c.23 0 .45-.05.68-.09.45 1.27 1.67 2.18 3.09 2.18 1.91 0 3.46-1.55 3.46-3.46 0-1.9-1.55-3.44-3.45-3.44Z" />
             </svg>
           </button>
-        </div>
+        </div> */}
 
         {/* Login Link */}
         <p className="text-center text-sm text-gray-600 mt-6">
@@ -88,7 +77,6 @@ const RegisterPage = () => {
           </a>
         </p>
       </div>
-      <button onClick={() =>handleClick()}>hello</button>
     </div>
   )
 }
