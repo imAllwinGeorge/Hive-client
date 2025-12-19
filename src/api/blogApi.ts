@@ -1,5 +1,5 @@
 import type { AxiosResponse } from "axios";
-import type { BlogPost, BlogReponses, HomeDataResponse } from "../shared/types/types";
+import type { ApiResponse, BlogPost, BlogReponses, HomeDataResponse } from "../shared/types/types";
 import { extractApiError } from "../utils";
 import { axiosInstance } from "./axiosInstance";
 import { API_ROUTES } from "../shared/constants/apiRoutes";
@@ -53,6 +53,20 @@ class BlogApi {
         try {
             const response: AxiosResponse<HomeDataResponse> = 
             await axiosInstance.get(API_ROUTES.BLOG.getHomeData(searchQuery, page, skip));
+
+            if(response.status === HttpStatusCode.OK) {
+                return response.data
+            }
+            throw new Error(errorMessages.unexpectedError);
+        } catch (error) {
+            throw new Error(extractApiError(error));
+        }
+    }
+
+    async deleteBlog(blogId: string): Promise<ApiResponse<null>> {
+        try {
+            const response: AxiosResponse<ApiResponse<null>> =
+            await axiosInstance.patch(API_ROUTES.BLOG.deleteBlog(blogId))
 
             if(response.status === HttpStatusCode.OK) {
                 return response.data

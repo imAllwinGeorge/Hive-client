@@ -45,14 +45,11 @@ export default function BlogRead() {
     if (!blogPost) return
 
     try {
-    //   const response = await userService.deleteBlog(blogPost._id)
-    //   if (response.status === HttpStatusCode.OK) {
-    //     toast({
-    //       title: "Success",
-    //       description: "Blog deleted successfully",
-    //     })
-    //     router.back()
-    //   }
+      console.log(blogPost._id)
+      const response = await blogApi.deleteBlog(blogPost._id)
+
+      console.log(response)
+      navigate("/")
     } catch (error) {
       if (error instanceof Error) {
         toast.error(error.message);
