@@ -8,9 +8,9 @@ const Footer = () => {
           {/* Logo & Copyright */}
           <div className="text-center md:text-left">
             <Link to="/" className="text-xl font-bold text-gray-900">
-              BlogSite
+              <img src="/Hive-logo.png" alt="Hive" className="w-25 h-15 bg-black rounded"/>
             </Link>
-            <p className="text-sm text-gray-600 mt-1">© {new Date().getFullYear()} BlogSite. All rights reserved.</p>
+            <p className="text-sm text-gray-600 mt-1 pt-4">© {new Date().getFullYear()} BlogSite. All rights reserved.</p>
           </div>
 
           {/* Navigation Links */}
@@ -18,8 +18,8 @@ const Footer = () => {
             <Link to="/" className="text-sm text-gray-600 hover:text-gray-900 transition-colors">
               Home
             </Link>
-            <Link to="/blogs" className="text-sm text-gray-600 hover:text-gray-900 transition-colors">
-              Blogs
+            <Link to="/crete" className="text-sm text-gray-600 hover:text-gray-900 transition-colors">
+              create
             </Link>
             <Link to="/about" className="text-sm text-gray-600 hover:text-gray-900 transition-colors">
               About

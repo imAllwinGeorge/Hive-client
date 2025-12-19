@@ -113,9 +113,7 @@ export default function BlogHomepage() {
                     <h3 className="text-xl font-bold text-gray-900 mb-3 leading-tight">
                       {post.title}
                     </h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">
-                      {post.introduction}
-                    </p>
+                    <div className="text-muted-foreground mb-4 overflow-hidden line-clamp-3" dangerouslySetInnerHTML={{ __html: post.introduction }} />
                   </div>
                 </div>
               ))}

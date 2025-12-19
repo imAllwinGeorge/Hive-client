@@ -74,7 +74,7 @@ export function BlogSectionCard({
         <div className="border border-gray-300 rounded-2xl">
           <SimpleEditor
             setNewPostRichText={(html) => onUpdate("content", html)}
-            initialContent="Write your section content..."
+            initialContent={section.content}
           />
         </div>
 

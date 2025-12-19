@@ -181,6 +181,7 @@ type SimpleEditorPropsType = {
 }
 export function 
 SimpleEditor({setNewPostRichText, initialContent}: SimpleEditorPropsType) {
+  console.log("simple editor : ", initialContent)
   const isMobile = useIsMobile()
   const { height } = useWindowSize()
   const [mobileView, setMobileView] = React.useState<
@@ -191,7 +192,7 @@ SimpleEditor({setNewPostRichText, initialContent}: SimpleEditorPropsType) {
   const editor = useEditor({
     immediatelyRender: false,
     shouldRerenderOnTransaction: false,
-    content: initialContent || "",
+    content: initialContent,
     editorProps: {
       attributes: {
         autocomplete: "off",
@@ -231,7 +232,8 @@ SimpleEditor({setNewPostRichText, initialContent}: SimpleEditorPropsType) {
     onUpdate: ({editor}) => {
       setNewPostRichText(editor.getHTML());
     }
-  })
+  },
+[initialContent])
 
   const rect = useCursorVisibility({
     editor,
