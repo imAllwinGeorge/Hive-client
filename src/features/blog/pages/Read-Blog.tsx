@@ -25,14 +25,12 @@ export default function BlogRead() {
 
   // Fetch blog post
   useEffect(() => {
-    console.log("hwllo")
     const fetchBlog = async () => {
       console.log(id)
       try {
         const blog = await blogApi.getBlog(id)
         console.log(blog, id);
         setBlogPost(blog);
-        navigate("/")
       } catch (error) {
         if (error instanceof Error) {
           toast.error(error.message)
