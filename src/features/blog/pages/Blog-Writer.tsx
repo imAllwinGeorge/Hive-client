@@ -13,6 +13,7 @@ import toast from "react-hot-toast";
 import { useSelector } from "react-redux";
 import type { RootState } from "../../../store";
 import type { BlogSection } from "../../../shared/types/types";
+import { useNavigate } from "react-router-dom";
 
 interface BlogDTO {
   userId: string;
@@ -24,6 +25,7 @@ interface BlogDTO {
 }
 
 export default function BlogWriter() {
+  const navigate = useNavigate();
   const user = useSelector((state: RootState) => state.auth.user);
   const [blogPost, setBlogPost] = useState<BlogDTO>({
     userId: user?._id as string,
@@ -140,6 +142,8 @@ export default function BlogWriter() {
     try {
       const blog = await blogApi.crateBlog(formData);
       console.log("create blog: ", blog);
+
+      navigate("/");
     } catch (error) {
       console.log(error);
       if (error instanceof Error) {
