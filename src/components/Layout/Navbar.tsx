@@ -56,6 +56,12 @@ const Navbar = () => {
             >
               About
             </Link>
+            <Link
+              to="/profile"
+              className="text-gray-700 hover:text-gray-900 transition-colors"
+            >
+              Profile
+            </Link>
           </div>
 
           {/* Auth Section */}
@@ -125,6 +131,13 @@ const Navbar = () => {
               onClick={() => setMobileMenuOpen(false)}
             >
               About
+            </Link>
+            <Link
+              to="/profile"
+              className="block py-2 text-gray-700 hover:text-gray-900"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Profile
             </Link>
 
             <div className="pt-3 border-t border-gray-200">

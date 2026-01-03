@@ -28,7 +28,7 @@ export interface User {
     updatedAt: string;
 }
 
-export interface BlogPost {
+export interface  BlogPost {
   _id: string;
   userId: string;
   title: string;
