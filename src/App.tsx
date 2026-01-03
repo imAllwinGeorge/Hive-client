@@ -11,6 +11,7 @@ import BlogWriter from "./features/blog/pages/Blog-Writer";
 import BlogRead from "./features/blog/pages/Read-Blog";
 import EditBlog from "./features/blog/pages/Edit-Blog";
 import BlogHomepage from "./features/blog/pages/blog-home";
+import UserProfile from "./features/user/pages/UserProfile";
 
 function App() {
   return (
@@ -30,7 +31,7 @@ function App() {
           <Route path="/create" element={<BlogWriter />} />
           <Route path="/edit/:id" element={<EditBlog />} />
           <Route path="/blog/:id" element={<BlogRead />} />
-          <Route path="/profile" />
+          <Route path="/profile" element={<UserProfile />} />
         </Route>
       </Route>
 

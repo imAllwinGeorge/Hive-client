@@ -13,5 +13,8 @@ export const API_ROUTES = {
         editBlog: (blogId: string) => `/api/blog/edit-blog/${blogId}`,
         getHomeData: (searchQuery: string, page: number, skip: number) => `/api/blog/home?search=${searchQuery}&page=${page}&skip=${skip}`,
         deleteBlog: (blogId: string) => `/api/blog/delete-blog/${blogId}`
+    },
+    USER: {
+        getBlogs:(page: number, skip: number) => `/api/user/blogs?page=${page}&skip=${skip}`
     }
 }
